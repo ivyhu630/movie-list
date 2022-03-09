@@ -33,7 +33,7 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    this.setStategir(
+    this.setState(
       {searchedMovies: this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.searchKey.toLowerCase()))}
     );
   }
