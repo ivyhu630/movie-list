@@ -4,7 +4,6 @@ import Search from './Search.jsx';
 import Watch from './Watch.jsx';
 import AddMovie from './AddMovie.jsx';
 import movieData from '../data/movieData.js';
-import {map} from 'underscore';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class App extends React.Component {
       searchKey: "",
       searchKeyAfterSubmit:"",
       movies: movieData.movieData,
-      searchedMovies: movieData.searchedMovieData,
       movieAddition:""
     }
     this.handleChange = this.handleChange.bind(this);
@@ -35,7 +33,7 @@ class App extends React.Component {
       alert("no movie by that name found");
     } else {
       this.setState(
-        {searchedMovies: searchedMovies,
+        {
         searchKeyAfterSubmit: this.state.searchKey
         }
       );
@@ -92,7 +90,6 @@ class App extends React.Component {
         <div className='watch'>
           <Watch
               movies= {this.state.movies}
-              searchedMovies={this.state.searchedMovies}
               searchKeyAfterSubmit= {this.state.searchKeyAfterSubmit}
               onTitleClick={this.handleTitleClick}
             />
