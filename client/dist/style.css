@@ -1,3 +1,30 @@
 body {
   font-family: sans-serif, arial;
+  font-size: 20px
 }
+
+
+.movieLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 20px
+}
+
+.watchTabLine {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+
+.turnGreenTab {
+  background-color: green;
+  border: solid black;
+};
+
+.deactivateTab {
+  border: solid black;
+};
+
+

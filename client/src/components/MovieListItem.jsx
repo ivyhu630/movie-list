@@ -1,8 +1,28 @@
 import React from 'react';
 
-const MovieListItem = ({movie}) => (
-  <li>{movie.title}</li>
-);
+const MovieListItem = ({movie,onTitleClick, tabSelection}) => {
+
+  if  (tabSelection === movie.watched && tabSelection === true) {
+    return (
+    <div className='movieLine' onClick={() => onTitleClick(movie.title)}>
+      <div>{movie.title}</div>
+      <div className='watchStatus'>{'watched'}</div>
+    </div>
+    );
+  }
+  else if  (tabSelection === movie.watched && tabSelection === false) {
+    return (
+    <div className='movieLine' onClick={() => onTitleClick(movie.title)}>
+      <div>{movie.title}</div>
+      {/* <div class='watchStatus'>{'watched'}</div> */}
+    </div>
+    );
+  } else{
+    return(
+      <div></div>
+    )
+  }
+}
 
 
 
