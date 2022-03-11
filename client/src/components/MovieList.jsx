@@ -12,7 +12,7 @@ class MovieList extends React.Component {
 
 
     render() {
-
+      // console.log("in MovieList " + this.props.searchKeyAfterSubmit)
       return (
 
       <div className ='movies'>{this.props.movies.map((movie) =>
