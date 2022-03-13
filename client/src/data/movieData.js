@@ -1,20 +1,13 @@
 
 var movieData = {
   movieData: [
-  {title: 'Mean Girls', watched: true},
-  {title: 'Hackers', watched: false},
-  {title: 'The Grey', watched: false},
-  {title: 'Sunshine', watched: false},
-  {title: 'Ex Machina', watched: false},
+  {title: 'Mean Girls', watched: true, selected: false},
+  {title: 'Hackers', watched: false, selected: false},
+  {title: 'The Grey', watched: false, selected: false},
+  {title: 'Sunshine', watched: false, selected: false},
+  {title: 'Ex Machina', watched: false, selected: false},
   ]
-  // ,
-  // searchedMoviedata: [
-  //   {title: 'Mean Girls', watched: true},
-  //   {title: 'Hackers', watched: false},
-  //   {title: 'The Grey', watched: false},
-  //   {title: 'Sunshine', watched: false},
-  //   {title: 'Ex Machina', watched: false},
-  // ]
+
 };
 
 

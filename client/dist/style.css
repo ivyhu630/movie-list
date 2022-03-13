@@ -4,12 +4,12 @@ body {
 }
 
 
-.movieLine {
-  display: flex;
-  flex-direction: row;
+/* .movieLine { */
+  /* display: flex; */
+  /* flex-direction: row;
   justify-content: space-between;
-  column-gap: 20px
-}
+  column-gap: 20px */
+/* } */
 
 .watchTabLine {
   display: flex;

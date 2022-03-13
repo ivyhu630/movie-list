@@ -7,71 +7,55 @@ class MovieListItem extends React.Component {
     this.state = {
       selected: false
     }
-    this.handleTitleClick = this.handleTitleClick.bind(this);
-
+    this.handleTitleSelection = this.handleTitleSelection.bind(this);
+    this.turnOnTitle = this.turnOnTitle.bind(this);
+    this.handleWatchStatus = this.handleWatchStatus.bind(this);
   }
 
-  handleTitleClick(e) {
-    this.props.onTitleClick(this.props.movie.title);
-    var newState = !this.state.selected;
-    // console.log('new state for ', this.props.movie.title, newState);
+  handleTitleSelection(e) {
+    console.log('handle title')
     this.setState({
-      selected: newState
+      selected: !this.state.selected
     });
+  }
+
+  turnOnTitle(e){
+    this.setState({
+      selected: true
+    });
+  }
+
+  handleWatchStatus (e) {
+    e.stopPropagation();
+    this.props.changeWatchStatus(this.props.movie.title);
+    this.props.onWatchChange(e);
   }
 
   render() {
     if (this.props.searchKeyAfterSubmit === '' || (!(this.props.searchKeyAfterSubmit === '') && this.props.movie.title.toLowerCase().includes(this.props.searchKeyAfterSubmit.toLowerCase()))) {
-
+      if (this.props.tabSelection === this.props.movie.watched) {
         return (
-        <div className='movieLine' onClick={this.handleTitleClick}
-        // onClick={() => this.props.onTitleClick(this.props.movie.title)}
-        >
-          <div>{this.props.movie.title}
-            <div className='movieDetail'>
+        <div className='movieLine' onClick={this.handleTitleSelection}>{this.props.movie.title}
+            <div className='movieDetail' >
             <MovieDetail
               titleDetail={this.state.selected}
+              changeWatchStatus={this.props.changeWatchStatus}
+              handleWatchStatus={this.handleWatchStatus}
+              turnOnTitle={this.turnOnTitle}
               movie={this.props.movie}/>
             </div>
-            <div className='watchStatus'>{'watched'}</div>
-          </div>
         </div>
         );
-    } else{
+      } else {
         return null;
+      }
 
+    } else {
+      return null;
     }
+    // }
 
   }
-  //   if (this.props.searchKeyAfterSubmit === '' || (!(this.props.searchKeyAfterSubmit === '') && this.props.movie.title.toLowerCase().includes(this.props.searchKeyAfterSubmit.toLowerCase()))) {
-  //     if (this.props.tabSelection === this.props.movie.watched && this.props.tabSelection === true) {
-  //       return (
-  //       <div className='movieLine' onClick={() => this.props.onTitleClick(this.props.movie.title)}>
-  //         <div>{this.props.movie.title}
-  //           <div className='movieDetail' onClick={this.handleTitleClick}>
-  //           <MovieDetail
-  //             titleDetail={this.state.selected}
-  //             movie={this.props.movie}
-  //           />
-
-  //           </div>
-  //           <div className='watchStatus'>{'watched'}</div>
-  //         </div>
-  //       </div>
-  //       );
-  //     }
-  //     else if  (this.props.tabSelection === this.props.movie.watched && this.props.tabSelection === false) {
-  //       return (
-  //       <div className='movieLine' onClick={() => this.props.onTitleClick(this.props.movie.title)}>
-  //         <div>{this.props.movie.title}</div>
-  //       </div>
-  //       );
-  //     } else{
-  //       return null;
-  //     }
-  //   } else {
-  //     return null;
-  //   }
 
   // }
 

@@ -5,11 +5,7 @@ import React from 'react';
 class MovieList extends React.Component {
   constructor(props) {
     super(props);
-
     }
-
-
-
 
     render() {
       // console.log("in MovieList " + this.props.searchKeyAfterSubmit)
@@ -18,12 +14,12 @@ class MovieList extends React.Component {
       <div className ='movies'>{this.props.movies.map((movie) =>
         <MovieListItem
           movie = {movie}
-          onTitleClick={this.props.onTitleClick}
+          changeWatchStatus={this.props.changeWatchStatus}
           tabSelection={this.props.tabSelection}
           searchKeyAfterSubmit={this.props.searchKeyAfterSubmit}
+          onWatchChange={this.props.onWatchChange}
           />)}</div>
         );
-
     }
 }
 

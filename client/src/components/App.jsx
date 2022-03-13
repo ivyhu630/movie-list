@@ -18,7 +18,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMovieAddition = this.handleMovieAddition.bind(this);
     this.handleMovieAdditionChange = this.handleMovieAdditionChange.bind(this);
-    this.handleTitleClick = this.handleTitleClick.bind(this);
+    this.changeWatchStatus = this.changeWatchStatus.bind(this);
   }
 
   handleChange(key) {
@@ -56,10 +56,10 @@ class App extends React.Component {
     );
   }
 
-  handleTitleClick(title) {
-    console.log("clicked " + title);
+  changeWatchStatus(currentMovie) {
+    // console.log("clicked " + currentMovie.title);
     for (const movie of this.state.movies) {
-      if (title === movie.title) {
+      if (currentMovie.title === movie.title) {
         movie.watched = !movie.watched;
         break;
       }
@@ -79,7 +79,6 @@ class App extends React.Component {
             movieAddition={this.state.movieAddition}
           />
         </div>
-
         <div>
           <Search
             onSearchChange={this.handleChange}
@@ -91,13 +90,12 @@ class App extends React.Component {
           <Watch
               movies= {this.state.movies}
               searchKeyAfterSubmit= {this.state.searchKeyAfterSubmit}
-              onTitleClick={this.handleTitleClick}
+              changeWatchStatus={this.changeWatchStatus}
             />
         </div>
       </div>
     );
   }
 }
-
 
 export default App;

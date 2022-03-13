@@ -25,7 +25,7 @@ class Search extends React.Component {
           className="form-control"
           type="text"
           placeholder="Search..."
-          value={this.props.searchKey}
+          value={this.searchKey}
           onChange={this.handleChange}/>
         <input
           className="btn hidden-sm-down"

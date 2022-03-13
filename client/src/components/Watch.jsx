@@ -11,11 +11,12 @@ class Watch extends React.Component {
 
     this.toggleWatchedOff = this.toggleWatchedOff.bind(this);
     this.toggleWatchedOn = this.toggleWatchedOn.bind(this);
+    this.onWatchChange = this.onWatchChange.bind(this);
     }
 
 
     toggleWatchedOn(event) {
-      // console.log("clicked watch");
+      console.log("clicked watch");
       this.setState(
         {watched:true}
       )
@@ -27,6 +28,14 @@ class Watch extends React.Component {
         {watched: false}
       )
     };
+
+    onWatchChange(event) {
+      console.log('watch tab on' + this.state.watched);
+
+      this.setState(
+        {watched: !this.state.watched}
+      )
+    }
 
 
     render() {
@@ -46,8 +55,9 @@ class Watch extends React.Component {
               movies= {this.props.movies}
               searchedMovies={this.props.searchedMovies}
               searchKeyAfterSubmit= {this.props.searchKeyAfterSubmit}
-              onTitleClick={this.props.onTitleClick}
+              changeWatchStatus={this.props.changeWatchStatus}
               tabSelection={this.state.watched}
+              onWatchChange={this.onWatchChange}
               />
           </div>
         </div>
